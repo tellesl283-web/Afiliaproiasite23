@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AfiliAI Pro — Afiliados Inteligentes</title>
+<style>
+:root{--bg:#f3f4fb;--card:#fff;--tx:#14152b;--mu:#667090;--bd:#e3e6f3;--ac:#6d5efc;--ac2:#22d3ee;--ok:#16a34a;--wa:#d97706;--er:#dc2626;--sb:#0e0f24;--chip:#eeecff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#090a1a;--card:#13152d;--tx:#eceefc;--mu:#9ba0c8;--bd:#25284b;--chip:#232256;--sb:#070817}}
+:root[data-theme="dark"]{--bg:#090a1a;--card:#13152d;--tx:#eceefc;--mu:#9ba0c8;--bd:#25284b;--chip:#232256;--sb:#070817}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--tx);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.app{display:grid;grid-template-columns:250px 1fr;min-height:100vh}
+#sb{background:var(--sb);color:#cfd2f5;padding:20px 14px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+.logo{display:flex;gap:12px;align-items:center;margin-bottom:22px}
+.logo i{font-style:normal;width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--ac),var(--ac2));display:grid;place-items:center;color:#fff;font-weight:800}
+.logo strong{color:#fff;font-size:17px}.logo em{color:#a99dff;font-style:normal}.logo small{display:block;font-size:9px;letter-spacing:.14em;color:#8286b8}
+.ni{all:unset;cursor:pointer;display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;color:#aeb2e0;font-size:14px}
+.ni span{width:20px;text-align:center}.ni:hover{background:#1a1c3d}.ni.on{background:linear-gradient(90deg,#2a2670,#181a3f);color:#fff;box-shadow:inset 3px 0 var(--ac)}
+.ni b{margin-left:auto;background:#f59e0b;color:#000;border-radius:99px;font-size:11px;padding:1px 8px}
+.lim{margin-top:auto;background:#161838;border:1px solid #2a2d5c;border-radius:16px;padding:14px}
+.lim small{color:#8d92c4}.lim h3{margin:2px 0 10px;color:#fff;font-size:24px}
+.bar{height:8px;border-radius:9px;background:#2a2d5c;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2))}
+main{padding:28px;max-width:1100px;width:100%}
+.eyebrow{color:var(--ac);font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+h1{margin:4px 0 4px;font-size:30px;letter-spacing:-.02em}.sub{color:var(--mu);margin:0 0 22px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-bottom:16px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:18px;padding:18px;margin-bottom:14px}
+.card h3{margin:0 0 4px;font-size:16px}.mu{color:var(--mu);font-size:13px}
+.kpi b{display:block;font-size:28px;letter-spacing:-.02em;margin-top:4px}
+.ai{background:linear-gradient(135deg,rgba(109,94,252,.14),rgba(34,211,238,.1));border-color:rgba(109,94,252,.4)}
+.btn{all:unset;cursor:pointer;background:linear-gradient(135deg,var(--ac),#8a5cff);color:#fff;padding:10px 16px;border-radius:12px;font-weight:600;font-size:14px;display:inline-block}
+.btn.s{background:var(--chip);color:var(--ac)}.btn.d{background:rgba(220,38,38,.12);color:var(--er)}.btn.g{background:rgba(22,163,74,.14);color:var(--ok)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;width:100%}
+.f{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:12px 0}
+.badge{display:inline-block;border-radius:99px;padding:2px 10px;font-size:12px;font-weight:600;background:var(--chip);color:var(--ac)}
+.badge.ok{background:rgba(22,163,74,.15);color:var(--ok)}.badge.wa{background:rgba(217,119,6,.16);color:var(--wa)}.badge.er{background:rgba(220,38,38,.14);color:var(--er)}
+.score{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;background:conic-gradient(var(--ac) var(--p),var(--bd) 0);position:relative;flex:none}
+.score::after{content:attr(data-s);position:absolute;inset:5px;border-radius:50%;background:var(--card);color:var(--tx);display:grid;place-items:center;font-size:14px}
+.an{margin-top:10px;padding:12px;border-radius:12px;background:var(--bg);font-size:13px;display:grid;gap:4px}
+.ch{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:12px}
+.ch div{flex:1;background:linear-gradient(180deg,var(--ac2),var(--ac));border-radius:8px 8px 3px 3px;min-height:4px;position:relative}
+.chat{display:grid;gap:10px;max-height:52vh;overflow:auto;margin:12px 0}
+.m{padding:10px 14px;border-radius:14px;max-width:88%;white-space:normal}.m.u{background:var(--ac);color:#fff;justify-self:end}.m.a{background:var(--bg);border:1px solid var(--bd)}
+.empty{text-align:center;color:var(--mu);padding:26px}
+#bn{display:none}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:90px;background:#14152b;color:#fff;padding:10px 16px;border-radius:12px;font-size:14px;opacity:0;pointer-events:none;transition:.25s;z-index:20;max-width:90vw}
+#toast.on{opacity:1}
+@media (max-width:899px){
+.app{grid-template-columns:1fr}#sb{display:none}main{padding:20px 16px 110px}h1{font-size:26px}
+#bn{display:flex;position:fixed;left:0;right:0;bottom:0;bottom:0;background:var(--sb);padding:6px 4px calc(6px + env(safe-area-inset-bottom,0px));z-index:10}
+#bn .ni{flex:1;flex-direction:column;gap:2px;font-size:10px;padding:7px 2px;text-align:center;position:relative}#bn .ni.on{box-shadow:none;background:#23236a}#bn .ni b{position:absolute;top:2px;right:8px;padding:0 6px}}
+.ni span{display:grid}.ni svg,.kpi svg,.card h3 svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.kpi svg{width:22px;height:22px;color:var(--ac);vertical-align:-5px;margin-right:6px}.card h3 svg{vertical-align:-4px;margin-right:6px;color:var(--ac)}
+:root{--ac:#10b981;--ac2:#38bdf8;--chip:#e0f7ee;--sb:#06131a;--bg:#f2f7f6;--bd:#dbe7e4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#07120f;--card:#0e1d1b;--bd:#1b3330;--chip:#12332e;--sb:#04100d}}
+:root[data-theme="dark"]{--bg:#07120f;--card:#0e1d1b;--bd:#1b3330;--chip:#12332e;--sb:#04100d}
+.ni:hover{background:#0f2a30}.ni.on{background:linear-gradient(90deg,#0d4a45,#0a2530)}.lim{background:#0b2128;border-color:#17414a}.bar{background:#17414a}
+.btn{background:linear-gradient(135deg,var(--ac),#0ea5a4)}.ai{background:linear-gradient(135deg,rgba(16,185,129,.14),rgba(56,189,248,.1));border-color:rgba(16,185,129,.4)}
+.logo em{color:#f5c451}.logo i{background:linear-gradient(135deg,#10b981,#38bdf8)}.ch div{background:linear-gradient(180deg,#38bdf8,#10b981)}#bn .ni.on{background:#0d4a45}
+@media (max-width:899px){#bn{overflow-x:auto}#bn .ni{flex:0 0 64px}}
+</style>
+</head>
+<body>
+<div class="app"><aside id="sb"></aside><main id="main"></main></div>
+<nav id="bn"></nav><div id="toast"></div>
+<script>
+const $=s=>document.querySelector(s);
+const esc=t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const brl=n=>'R$ '+(+n||0).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const today=()=>new Date().toISOString().slice(0,10);
+let TK=sessionStorage.getItem('tk')||'';
+const api=async(p,m,b)=>{const r=await fetch(p,{method:m||'GET',headers:{Authorization:'Bearer '+TK,'Content-Type':'application/json'},body:b?JSON.stringify(b):undefined});if(r.status===401){TK=prompt('Token de acesso')||'';sessionStorage.setItem('tk',TK);if(TK)return api(p,m,b)}return r};
+const dlf=({filename,data})=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([data]));a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),4000)};
+let S={limit:10,spent:0,day:today(),products:[],campaigns:[],posts:[],perfil:{},insight:''};
+try{const r=localStorage.getItem('afiliai');if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+if(S.day!==today()){S.day=today();S.spent=0}
+let DB=null,cloud='local',pt;
+const push=async()=>{try{const r=await api('/api/state','PUT',S);cloud=r.ok?'ok':'err'}catch(e){cloud='err'}};
+const save=()=>{try{localStorage.setItem('afiliai',JSON.stringify(S))}catch(e){}clearTimeout(pt);pt=setTimeout(push,700)};
+async function initCloud(){try{const r=await api('/api/state');if(r.ok){const d=await r.json();if(d&&d.products){S=Object.assign(S,d);if(S.day!==today()){S.day=today();S.spent=0}}else await push();cloud='ok'}else cloud='err';render()}catch(e){cloud='err'}}
+const NAV=[['ov','Visão geral'],['pr','Produtos'],['dc','Descobrir'],['ca','Campanhas'],['ag','Agenda'],['ap','Aprovações'],['vt','Vitrine de vendas'],['gm','Gerente IA'],['sv','Servidor'],['as','Assistente IA'],['cv','Cofre'],['cf','Ajustes']];
+let view='ov',chat=[],sm=null,busy=false,tt;
+const pend=()=>S.campaigns.filter(c=>c.st==='pendente');
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>e.classList.remove('on'),2600)}
+async function ai(p,json){
+  if(busy){toast('Aguarde a IA terminar…');return null}
+  busy=true;
+  try{
+    const r=await api('/api/ai','POST',{prompt:p});if(!r.ok)throw{code:r.status===429?'rate_limited':'na'};
+    const t=(await r.json()).text||'';if(!json)return t;
+    const a=[t.indexOf('{'),t.indexOf('[')].filter(x=>x>=0);return JSON.parse(t.slice(Math.min(...a),Math.max(t.lastIndexOf('}'),t.lastIndexOf(']'))+1));
+  }catch(e){toast(e&&e.code==='not_granted'?'Permissão de IA negada.':e&&e.code==='rate_limited'?'Muitas requisições. Tente em instantes.':'IA indisponível neste momento.');return null}
+  finally{busy=false}
+}
+const ctx=()=>'Contexto do usuário (afiliado brasileiro). Negócio: '+JSON.stringify(S.perfil||{})+'. Produtos: '+(S.products.map(p=>`${p.n} (${p.pl}, comissão ${p.cm}%, preço ${p.pr})`).join('; ')||'nenhum')+'. Campanhas: '+(S.campaigns.map(c=>`${c.pn} em ${c.canal}, orçamento ${c.b}, ${c.st}`).join('; ')||'nenhuma')+`. Limite diário: R$ ${S.limit}.`;
+function go(v){if(view==='cv'&&v!=='cv'){VK=null;VD=null;SH={}}view=v;render()}
+function shell(){
+  const h=NAV.map(([i,l,c])=>`<button class="ni ${view===i?'on':''}" onclick="go('${i}')"><span>${ic(i)}</span>${l}${i==='ap'&&pend().length?`<b>${pend().length}</b>`:''}</button>`).join('');
+  const pc=Math.min(100,S.limit?S.spent/S.limit*100:0);
+  $('#sb').innerHTML=`<div class="logo"><i>A✦</i><div><strong>AfiliAI <em>Pro</em></strong><small>AFILIADOS INTELIGENTES</small></div></div><div class="mu" style="font-size:11px;letter-spacing:.14em;margin:0 12px 6px">ESPAÇO DE TRABALHO</div>${h}<div class="lim"><small>Limite diário</small><h3>${brl(S.limit)}</h3><div class="bar"><i style="width:${pc}%"></i></div><small>${brl(S.spent)} usados · gastos exigem sua aprovação</small></div>`;
+  $('#bn').innerHTML=h.replace(/Visão geral/,'Início').replace(/Assistente IA/,'IA').replace(/Aprovações/,'Aprovar').replace(/Campanhas/,'Camp.').replace(/Vitrine de vendas/,'Vitrine');
+}
+const head=(e,t,s)=>`<div class="eyebrow">${e}</div><h1>${t}</h1><p class="sub">${s}</p>`;
+function vOv(){
+  const pr=S.products,an=pr.filter(p=>p.an),avg=an.length?Math.round(an.reduce((a,p)=>a+p.an.score,0)/an.length):'—';
+  const cs=S.campaigns.slice(-7),mx=Math.max(1,...cs.map(c=>c.b));
+  return head('Visão geral','Seu painel de afiliado','Acompanhe produtos, campanhas e o que precisa da sua aprovação.')+
+  `<div class="grid"><div class="card kpi"><span class="mu">${ic('pr')}Produtos</span><b>${pr.length}</b></div><div class="card kpi"><span class="mu">${ic('ca')}Campanhas ativas</span><b>${S.campaigns.filter(c=>c.st==='aprovada').length}</b></div><div class="card kpi"><span class="mu">${ic('ap')}Aguardando aprovação</span><b>${pend().length}</b></div><div class="card kpi"><span class="mu">${ic('as')}Score médio (IA)</span><b>${avg}</b></div></div>
+  <div class="card ai"><h3>✧ Resumo estratégico da IA</h3><p class="mu" style="white-space:pre-wrap">${esc(S.insight)||'Peça à IA uma leitura do seu cenário e as próximas ações recomendadas.'}</p><button class="btn" onclick="insight()">Gerar resumo</button></div>
+  <div class="card"><h3>Orçamento das últimas campanhas</h3><div class="mu">Valores diários em R$</div>${cs.length?`<div class="ch">${cs.map(c=>`<div title="${esc(c.pn)}" style="height:${Math.max(4,c.b/mx*100)}%"></div>`).join('')}</div>`:'<div class="empty">Crie sua primeira campanha para ver o gráfico.</div>'}</div>
+  <div class="card mu">Protótipo: não há integração com contas de anúncios nem cobrança. Nada é publicado ou gasto sem sua aprovação.</div>`;
+}
+function vPr(){
+  return head('Catálogo','Meus produtos','Cadastre produtos de afiliação e deixe a IA avaliar o potencial.')+
+  `<div class="card"><h3>Novo produto</h3><div class="f"><input id="pn" placeholder="Nome do produto"><select id="pl"><option>Hotmart</option><option>Amazon</option><option>Shopee</option><option>Mercado Livre</option><option>Outra</option></select><input id="pr" type="number" min="0" placeholder="Preço (R$)"><input id="cm" type="number" min="0" max="100" placeholder="Comissão (%)"><input id="lk" placeholder="Link de afiliado"></div><button class="btn" onclick="addP()">Adicionar produto</button></div>`+
+  (S.products.length?S.products.map(p=>`<div class="card"><div class="row"><div style="flex:1;min-width:150px"><h3>${esc(p.n)} ${p.est?'<span class="badge wa">confirmar na plataforma</span>':''}</h3><div class="mu">${esc(p.pl)} · ${brl(p.pr)} · comissão ${p.cm}% · ganho/venda ≈ ${brl(p.pr*p.cm/100)}</div></div>${p.an?`<div class="score" data-s="${p.an.score}" style="--p:${p.an.score}%"></div>`:''}</div>${p.an?`<div class="an"><div><b>Resumo:</b> ${esc(p.an.resumo)}</div><div><b>Público:</b> ${esc(p.an.publico)}</div><div><b>Ângulo:</b> ${esc(p.an.angulo)}</div><div><b>Riscos:</b> ${esc(p.an.riscos)}</div></div>`:''}${p.lk?'':`<div class="row" style="margin-top:10px"><input id="lk${p.id}" placeholder="Cole seu link de afiliado" style="flex:1"><button class="btn s" onclick="setLk(${p.id})">Salvar link</button></div>`}<div class="row" style="margin-top:12px"><button class="btn s" onclick="analyze(${p.id})">✧ Analisar com IA</button><button class="btn s" onclick="go('ca')">Criar campanha</button><button class="btn d" onclick="delP(${p.id})">Remover</button></div></div>`).join(''):'<div class="card empty">Nenhum produto ainda. Adicione o primeiro acima.</div>');
+}
+function vCa(){
+  return head('Marketing','Campanhas','A IA escreve o texto; você aprova antes de qualquer gasto.')+
+  (S.products.length?`<div class="card"><h3>Nova campanha</h3><div class="f"><select id="cp">${S.products.map(p=>`<option value="${p.id}">${esc(p.n)}</option>`).join('')}</select><select id="cc"><option>Instagram</option><option>TikTok</option><option>Google Ads</option><option>WhatsApp</option><option>YouTube</option></select><input id="cb" type="number" min="0" placeholder="Orçamento diário (R$)"></div><button class="btn" onclick="addC()">✧ Criar com IA</button></div>`:'<div class="card empty">Cadastre um produto primeiro.</div>')+
+  S.campaigns.slice().reverse().map(c=>`<div class="card"><div class="row"><h3 style="flex:1">${esc(c.pn)} · ${esc(c.canal)}</h3><span class="badge ${c.st==='aprovada'?'ok':c.st==='pendente'?'wa':'er'}">${c.st}</span></div><div class="mu">Orçamento ${brl(c.b)}/dia</div>${c.copy?`<div class="an"><b>${esc(c.copy.titulo)}</b><div>${esc(c.copy.texto)}</div><div class="mu">${esc(c.copy.hashtags)}</div></div>`:''}<div class="row" style="margin-top:10px"><button class="btn d" onclick="delC(${c.id})">Excluir</button></div></div>`).join('');
+}
+function vAp(){
+  const l=pend();
+  return head('Controle','Aprovações','Nenhuma campanha é ativada nem gasta sem a sua decisão.')+
+  (l.length?l.map(c=>{const over=S.spent+c.b>S.limit;return `<div class="card"><div class="row"><h3 style="flex:1">${esc(c.pn)} · ${esc(c.canal)}</h3><span class="badge ${over?'er':'wa'}">${brl(c.b)}</span></div>${c.copy?`<div class="an"><b>${esc(c.copy.titulo)}</b><div>${esc(c.copy.texto)}</div></div>`:''}${over?`<p class="mu" style="color:var(--er)">Excede o limite diário (${brl(S.limit)}). Ajuste o limite em Ajustes para aprovar.</p>`:''}<div class="row" style="margin-top:10px"><button class="btn g" ${over?'disabled':''} onclick="dec(${c.id},'aprovada')">Aprovar</button><button class="btn d" onclick="dec(${c.id},'rejeitada')">Rejeitar</button></div></div>`}).join(''):'<div class="card empty">Tudo em dia. Novas campanhas aparecerão aqui para revisão.</div>');
+}
+function vAs(){
+  const sug=['Quais produtos devo priorizar?','Ideias de conteúdo para TikTok','Como melhorar minhas campanhas?'];
+  return head('Inteligência artificial','Assistente IA','Tire dúvidas sobre afiliação, conteúdo, público e estratégia.')+
+  `<div class="card"><div class="row">${sug.map(s=>`<button class="btn s" onclick="ask('${s}')">${s}</button>`).join('')}</div><div class="chat" id="chat">${chat.length?chat.map(m=>`<div class="m ${m.r}">${esc(m.t).replace(/\n/g,'<br>')}</div>`).join(''):'<div class="empty">Converse com a IA. Ela conhece seus produtos e campanhas.</div>'}</div><div class="row"><input id="q" placeholder="Pergunte algo…" style="flex:1" onkeydown="if(event.key==='Enter')ask()"><button class="btn" onclick="ask()">Enviar</button></div></div>`;
+}
+function vCf(){
+  return head('Preferências','Ajustes','Defina limites e faça backup dos seus dados.')+perfilCard()+
+  `<div class="card"><h3>Controle de orçamento</h3><p class="mu">Limite máximo diário que você deseja respeitar.</p><input id="lm" type="number" min="0" value="${S.limit}" style="max-width:240px"><div style="margin-top:12px"><button class="btn" onclick="setLim()">Salvar limite</button></div></div>
+  <div class="card"><h3>Backup dos dados</h3><p class="mu">Exporte produtos e campanhas. O backup inclui os dados salvos neste navegador.</p><div class="row"><button class="btn s" onclick="exp()">↓ Exportar backup JSON</button><button class="btn s" onclick="$('#fi').click()">↑ Importar backup</button><input id="fi" type="file" accept=".json" hidden onchange="imp(this)"></div></div>
+  <div class="card"><h3>Zona de dados</h3><p class="mu">Apague os dados locais deste protótipo.</p><button class="btn d" onclick="clr()">Limpar dados locais</button></div>`;
+}
+const loc=d=>{const z=n=>String(n).padStart(2,'0');return `${d.getFullYear()}-${z(d.getMonth()+1)}-${z(d.getDate())}T${z(d.getHours())}:${z(d.getMinutes())}`};
+function vAg(){
+  const ps=(S.posts||[]).slice().sort((a,b)=>a.w.localeCompare(b.w)),np=ps.filter(p=>p.st==='pendente').length,now=loc(new Date());
+  return head('Automação','Agenda de posts','A IA planeja a semana, você pré-aprova uma vez e publica pela fila.')+
+  `<div class="card mu">Esta página não publica sozinha: ela só roda com o app aberto. Para postar offline, exporte a fila em CSV e carregue em um agendador (Meta Business Suite, Metricool, Buffer). Posts orgânicos não gastam; anúncios pagos continuam exigindo aprovação.</div>`+
+  (S.products.length?`<div class="card"><h3>✧ Gerar plano com IA</h3><div class="f"><select id="gp">${S.products.map(p=>`<option value="${p.id}">${esc(p.n)}</option>`).join('')}</select><select id="gc"><option>Instagram</option><option>TikTok</option><option>WhatsApp</option><option>YouTube</option></select><select id="gq"><option>3</option><option>5</option><option>7</option></select></div><button class="btn" onclick="genPlan()">Gerar posts</button></div>`:'<div class="card empty">Cadastre um produto para gerar posts.</div>')+
+  (ps.length?`<div class="row" style="margin-bottom:12px"><button class="btn g" ${np?'':'disabled'} onclick="preAll()">Pré-aprovar ${np} pendentes</button><button class="btn s" onclick="csv()">↓ Exportar CSV</button></div>`:'')+
+  ps.map(p=>{const late=p.st==='agendado'&&p.w<now;return `<div class="card"><div class="row"><h3 style="flex:1">${esc(p.pn)} · ${esc(p.canal)}</h3><span class="badge ${p.st==='publicado'?'ok':p.st==='agendado'&&!late?'':'wa'}">${late?'hora de publicar':p.st}</span></div><div class="mu">${new Date(p.w).toLocaleString('pt-BR',{dateStyle:'short',timeStyle:'short'})}</div><div class="an"><b>${esc(p.t)}</b><div>${esc(p.x)}</div><div class="mu">${esc(p.h)}</div></div><div class="row" style="margin-top:10px">${p.st==='pendente'?`<button class="btn g" onclick="setP(${p.id},'agendado')">Aprovar</button>`:''}<button class="btn s" onclick="cp(${p.id})">Copiar</button>${p.st!=='publicado'?`<button class="btn s" onclick="setP(${p.id},'publicado')">Marcar publicado</button>`:''}<button class="btn d" onclick="delPost(${p.id})">Remover</button></div></div>`}).join('');
+}
+async function genPlan(){const p=S.products.find(x=>x.id==$('#gp').value);if(!p)return;const canal=$('#gc').value,n=+$('#gq').value;toast('A IA está planejando…');
+  const r=await ai(ctx()+`\nCrie ${n} posts honestos (sem promessas falsas de ganho) para ${canal} divulgando o produto ${p.n} (${p.pl}). Responda SOMENTE JSON: array de ${n} objetos {"dia":número 1-7 (dias a partir de amanhã),"hora":"HH:MM","titulo":"","texto":"até 280 caracteres","hashtags":""}.`,true);
+  if(!Array.isArray(r))return;
+  r.forEach((o,i)=>{const d=new Date();d.setDate(d.getDate()+(+o.dia||i+1));const hm=String(o.hora||'12:00').split(':');d.setHours(+hm[0]||12,+hm[1]||0,0,0);S.posts.push({id:Date.now()+i,pn:p.n,canal,w:loc(d),t:o.titulo||'',x:o.texto||'',h:o.hashtags||'',st:'pendente'})});
+  save();render();toast('Plano criado. Revise e pré-aprove.')}
+const setP=(id,st)=>{S.posts.find(p=>p.id===id).st=st;save();render()};
+const delPost=id=>{S.posts=S.posts.filter(p=>p.id!==id);save();render()};
+const preAll=()=>{S.posts.forEach(p=>{if(p.st==='pendente')p.st='agendado'});save();render();toast('Posts pré-aprovados.')};
+async function cp(id){const p=S.posts.find(x=>x.id===id);try{await navigator.clipboard.writeText(p.x+'\n'+p.h);toast('Texto copiado.')}catch(e){toast('Não foi possível copiar aqui.')}}
+async function csv(){const q=s=>'"'+String(s||'').replace(/"/g,'""')+'"';const rows=[['data_hora','canal','produto','texto','hashtags'],...S.posts.filter(p=>p.st==='agendado').map(p=>[p.w,p.canal,p.pn,p.x,p.h])];
+  try{dlf({filename:'agenda-posts.csv',data:rows.map(r=>r.map(q).join(',')).join('\n')})}catch(e){toast('Não foi possível exportar aqui.')}}
+const perfilCard=()=>{const p=S.perfil||{};return `<div class="card"><h3>Perfil do negócio</h3><p class="mu">A IA usa isto para escrever no seu estilo. Não guarde senhas nem números de conta ou cartão aqui.</p><div class="f"><input id="pf1" placeholder="Nome do negócio" value="${esc(p.nome)}"><input id="pf2" placeholder="Nicho" value="${esc(p.nicho)}"><input id="pf3" placeholder="Público-alvo" value="${esc(p.publico)}"><input id="pf4" placeholder="Tom de voz" value="${esc(p.tom)}"></div><button class="btn" onclick="savePf()">Salvar perfil</button><p class="mu">Banco de dados: ${cloud==='ok'?'☁ sincronizado na nuvem':cloud==='err'?'erro ao salvar na nuvem':'apenas neste navegador'}</p></div>`};
+function savePf(){S.perfil={nome:$('#pf1').value,nicho:$('#pf2').value,publico:$('#pf3').value,tom:$('#pf4').value};save();toast('Perfil salvo.')}
+const IC={ov:'<rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/>',pr:'<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5M12 13v8"/>',dc:'<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>',ca:'<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a4 4 0 0 1 0 6M18 6a8 8 0 0 1 0 12"/>',ag:'<rect x="3" y="4" width="18" height="17" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/>',ap:'<path d="m5 12 5 5L20 7"/>',vt:'<path d="M3 9l2-5h14l2 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-6h6v6"/>',as:'<path d="M12 3l1.8 4.7 4.7 1.8-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',sv:'<rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/>',gm:'<rect x="5" y="8" width="14" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9 17h6"/>',cv:'<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',cf:'<circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/>'};
+const ic=n=>`<svg viewBox="0 0 24 24" aria-hidden="true">${IC[n]||''}</svg>`;
+const okL=l=>/^https?:\/\//i.test(l||'');
+function vDc(){const pl=S.plat;return head('Inteligência','Descobrir produtos','Vincule sua plataforma e deixe a IA registrar os produtos com maior potencial.')+
+`<div class="card"><h3>${ic('dc')}Plataforma vinculada</h3><div class="f"><select id="dp">${['Hotmart','Amazon','Shopee','Mercado Livre','Eduzz','Kiwify','Outra'].map(x=>`<option ${pl&&pl.nome===x?'selected':''}>${x}</option>`).join('')}</select><input id="di" placeholder="Seu ID de afiliado (opcional)" value="${esc(pl&&pl.id)}"></div><button class="btn s" onclick="linkPl()">Vincular</button>${pl?`<span class="badge ok" style="margin-left:8px">${esc(pl.nome)} vinculada</span>`:''}</div><div class="card ai"><h3>${ic('as')}Registro automático com IA</h3><p class="mu">A IA escolhe produtos com maior chance de retorno para o seu nicho e já os registra. As sugestões vêm do conhecimento geral da IA, não de dados ao vivo da plataforma: confirme preço, comissão e disponibilidade antes de divulgar.</p><div class="f"><select id="dq"><option>3</option><option selected>5</option><option>8</option></select></div><button class="btn" ${pl?'':'disabled'} onclick="discover()">Descobrir e registrar</button>${pl?'':'<p class="mu">Vincule uma plataforma primeiro.</p>'}</div>`}
+function linkPl(){S.plat={nome:$('#dp').value,id:$('#di').value.trim()};save();render();toast('Plataforma vinculada.')}
+async function discover(){const n=+$('#dq').value,pl=S.plat;toast('A IA está pesquisando…');
+  const r=await ai(ctx()+`\nVocê é especialista em afiliação na plataforma ${pl.nome} no Brasil. Sugira ${n} produtos com maior chance de retorno financeiro para este negócio. Prefira produtos reais e populares que você conheça; não invente marcas. Responda SOMENTE JSON: array de ${n} objetos {"n":"nome","pr":preço médio em reais (número),"cm":comissão típica em % (número),"score":0-100,"motivo":"1 frase"}.`,true);
+  if(!Array.isArray(r))return;let k=0;
+  r.forEach((o,i)=>{if(!o||!o.n||S.products.some(p=>p.n.toLowerCase()===String(o.n).toLowerCase()))return;S.products.push({id:Date.now()+i,n:String(o.n),pl:pl.nome,pr:+o.pr||0,cm:+o.cm||0,lk:'',est:1,an:{score:Math.max(0,Math.min(100,Math.round(+o.score||0))),resumo:String(o.motivo||''),publico:'—',angulo:'—',riscos:'Dados estimados pela IA; confirme na plataforma.'}});k++});
+  save();go('pr');toast(k+' produtos registrados.')}
+function setLk(id){const v=$('#lk'+id).value.trim();if(!okL(v))return toast('Cole um link que comece com https://');S.products.find(p=>p.id===id).lk=v;save();render()}
+function vVt(){const ok=S.products.filter(p=>okL(p.lk));return head('Vendas','Vitrine de vendas','Uma página só para quem vai comprar: sem painel e sem dados internos.')+`<div class="card"><h3>${ic('vt')}Vitrine para compradores</h3><p class="mu">Gera um arquivo HTML independente com os produtos que têm link de afiliado (${ok.length} de ${S.products.length}). Envie o arquivo para o seu site (por exemplo, Netlify) e compartilhe apenas o endereço dessa página com os clientes. O painel e o cofre nunca fazem parte dela.</p><button class="btn" ${ok.length?'':'disabled'} onclick="vitrine()">↓ Baixar vitrine (HTML)</button>${ok.length?'':'<p class="mu">Adicione o link de afiliado em Produtos.</p>'}</div>`+ok.map(p=>`<div class="card"><h3>${esc(p.n)}</h3><div class="mu">${esc(p.pl)} · ${brl(p.pr)}</div></div>`).join('')}
+async function vitrine(){const ok=S.products.filter(p=>okL(p.lk)),nm=esc((S.perfil&&S.perfil.nome)||'Minha vitrine');
+  const cards=ok.map(p=>`<article><h2>${esc(p.n)}</h2><p class="m">${esc(p.pl)}</p><p>${esc(p.an&&p.an.resumo||'')}</p><b>${p.pr?brl(p.pr):''}</b><a href="${esc(p.lk)}" target="_blank" rel="sponsored noopener">Comprar agora</a></article>`).join('');
+  const html=`<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${nm}</title><style>:root{color-scheme:light dark;--bg:#f2f7f6;--c:#fff;--t:#10201d;--m:#5f7773}@media(prefers-color-scheme:dark){:root{--bg:#07120f;--c:#0e1d1b;--t:#e8f5f1;--m:#8fb0aa}}body{margin:0;padding:24px 16px;background:var(--bg);color:var(--t);font:16px/1.5 system-ui,sans-serif}h1{text-align:center;margin:0 0 4px}.s{text-align:center;color:var(--m);margin:0 0 24px}main{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));max-width:1000px;margin:auto}article{background:var(--c);border-radius:18px;padding:20px;display:grid;gap:8px}h2{margin:0;font-size:18px}.m{color:var(--m);margin:0;font-size:13px}b{font-size:22px}a{background:linear-gradient(135deg,#10b981,#0ea5a4);color:#fff;text-decoration:none;text-align:center;padding:12px;border-radius:12px;font-weight:700}footer{text-align:center;color:var(--m);font-size:12px;margin-top:28px}</style></head><body><h1>${nm}</h1><p class="s">Seleção de produtos recomendados</p><main>${cards}</main><footer>Ao comprar pelos links desta página, posso receber uma comissão, sem custo extra para você.</footer></body></html>`;
+  try{dlf({filename:'vitrine.html',data:html})}catch(e){toast('Não foi possível exportar aqui.')}}
+let VK=null,VD=null,SH={};
+const b64=u=>btoa(String.fromCharCode(...new Uint8Array(u))),ub=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function kdf(pw,salt){const m=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);return crypto.subtle.deriveKey({name:'PBKDF2',salt,iterations:200000,hash:'SHA-256'},m,{name:'AES-GCM',length:256},false,['encrypt','decrypt'])}
+async function seal(){const iv=crypto.getRandomValues(new Uint8Array(12));const ct=await crypto.subtle.encrypt({name:'AES-GCM',iv},VK,new TextEncoder().encode(JSON.stringify(VD)));S.vault={salt:S.vault.salt,iv:b64(iv),ct:b64(ct)};save()}
+async function mkVault(){const a=$('#v1').value;if(a.length<8)return toast('Use ao menos 8 caracteres.');if(a!==$('#v2').value)return toast('As senhas não conferem.');const salt=crypto.getRandomValues(new Uint8Array(16));VK=await kdf(a,salt);VD=[];S.vault={salt:b64(salt)};await seal();render()}
+async function unlock(){try{const v=S.vault;VK=await kdf($('#v1').value,ub(v.salt));VD=JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:ub(v.iv)},VK,ub(v.ct))));render()}catch(e){VK=null;VD=null;toast('Senha incorreta.')}}
+const lockV=()=>{VK=null;VD=null;SH={};render()};
+async function addV(){const l=$('#vl').value.trim(),v=$('#vv').value;if(!l||!v)return;VD.push({id:Date.now(),l,v});await seal();render()}
+async function delV(id){VD=VD.filter(x=>x.id!==id);await seal();render()}
+async function cpv(id){try{await navigator.clipboard.writeText(VD.find(x=>x.id===id).v);toast('Copiado.')}catch(e){toast('Não foi possível copiar aqui.')}}
+function vCv(){const h=head('Segurança','Cofre','Informações sigilosas protegidas por senha e criptografia.'),w='<p class="mu">Os dados são criptografados (AES-256) com a sua senha. Se você esquecer a senha, não há como recuperar. Evite guardar senhas de outros serviços e números de cartão.</p>';
+  if(!S.vault)return h+`<div class="card"><h3>${ic('cv')}Criar senha do cofre</h3>${w}<div class="f"><input id="v1" type="password" placeholder="Senha (mín. 8 caracteres)"><input id="v2" type="password" placeholder="Repita a senha"></div><button class="btn" onclick="mkVault()">Criar cofre</button></div>`;
+  if(!VK)return h+`<div class="card"><h3>${ic('cv')}Cofre bloqueado</h3><div class="f"><input id="v1" type="password" placeholder="Senha do cofre" onkeydown="if(event.key==='Enter')unlock()"></div><button class="btn" onclick="unlock()">Desbloquear</button></div>`;
+  return h+`<div class="card"><h3>Novo item</h3><div class="f"><input id="vl" placeholder="Rótulo (ex.: ID de afiliado)"><input id="vv" placeholder="Valor ou nota"></div><div class="row"><button class="btn" onclick="addV()">Salvar no cofre</button><button class="btn s" onclick="lockV()">Bloquear</button></div></div>`+(VD.length?VD.map(x=>`<div class="card"><div class="row"><h3 style="flex:1">${esc(x.l)}</h3><button class="btn s" onclick="SH[${x.id}]=!SH[${x.id}];render()">${SH[x.id]?'Ocultar':'Mostrar'}</button><button class="btn s" onclick="cpv(${x.id})">Copiar</button><button class="btn d" onclick="delV(${x.id})">Excluir</button></div><div class="mu" style="word-break:break-all">${SH[x.id]?esc(x.v):'••••••••'}</div></div>`).join(''):'<div class="card empty">Cofre vazio.</div>')}
+async function routine(auto){const pm=S.perm||{};toast(auto?'Gerente IA rodando a rotina diária…':'Gerente IA analisando…');
+  const r=await ai(ctx()+`\nVocê é o gerente de marketing de afiliados do usuário. Você só propõe ações; nada é executado sem a aprovação dele. Responda SOMENTE JSON: {"resumo":"até 3 frases com diagnóstico e prioridade","acoes":[{"tipo":"post" ou "campanha","produto":"nome exato de um produto cadastrado","canal":"Instagram, TikTok, WhatsApp, YouTube ou Google Ads","titulo":"","texto":"até 280 caracteres, honesto","hashtags":"","orcamento":número em reais só para campanha (máx ${S.limit})}]}. Máximo 4 ações. ${pm.posts===false?'Não proponha posts.':''} ${pm.camp===false?'Não proponha campanhas pagas.':''}`,true);
+  if(!r||!Array.isArray(r.acoes))return;S.lastRun=today();let np=0,nc=0;
+  r.acoes.slice(0,4).forEach((a,i)=>{const p=S.products.find(x=>x.n===a.produto)||S.products[0];if(!p)return;
+    if(a.tipo==='campanha'&&pm.camp!==false){S.campaigns.push({id:Date.now()+i,pid:p.id,pn:p.n,canal:a.canal||'Instagram',b:Math.min(+a.orcamento||0,S.limit),copy:{titulo:a.titulo||'',texto:a.texto||'',hashtags:a.hashtags||''},st:'pendente'});nc++}
+    else if(a.tipo==='post'&&pm.posts!==false){const d=new Date();d.setDate(d.getDate()+1);d.setHours(12,0,0,0);S.posts.push({id:Date.now()+i,pn:p.n,canal:a.canal||'Instagram',w:loc(d),t:a.titulo||'',x:a.texto||'',h:a.hashtags||'',st:'pendente'});np++}});
+  S.log=[{d:new Date().toLocaleString('pt-BR'),r:r.resumo||'',np,nc},...(S.log||[])].slice(0,8);save();render();toast(`Gerente IA propôs ${np} posts e ${nc} campanhas para sua aprovação.`)}
+const setPm=(k,v)=>{S.perm=Object.assign({},S.perm,{[k]:v});save()};
+function vGm(){const pm=S.perm||{},tg=(k,l,d)=>`<label class="row" style="margin:12px 0;flex-wrap:nowrap"><input type="checkbox" style="width:auto" ${(k==='auto'?pm.auto:pm[k]!==false)?'checked':''} onchange="setPm('${k}',this.checked)"><span>${l}<br><small class="mu">${d}</small></span></label>`;
+  return head('Gerente IA','Seu gerente de marketing','A IA analisa, propõe e prepara. Você decide.')+
+  `<div class="card ai"><h3>${ic('gm')}Permissões do gerente</h3>${tg('posts','Propor posts','Entram pendentes na Agenda')}${tg('camp','Propor campanhas pagas','Entram em Aprovações e nunca gastam sem você')}${tg('auto','Rodar a rotina diária ao abrir o app','Uma vez por dia')}<p class="mu">${ic('cv')}Gastos sempre exigem a sua aprovação e respeitam o limite diário de ${brl(S.limit)}. Isso não pode ser desativado.</p><button class="btn" ${S.products.length?'':'disabled'} onclick="routine(false)">Rodar rotina agora</button>${S.products.length?'':'<p class="mu">Cadastre ou descubra produtos primeiro.</p>'}</div>`+
+  `<div class="card mu">O gerente roda quando o app está aberto. Para trabalhar 24 horas sem o app aberto, é preciso um servidor à parte.</div>`+
+  ((S.log||[]).length?(S.log).map(l=>`<div class="card"><div class="row"><h3 style="flex:1">${esc(l.d)}</h3><span class="badge">${l.np} posts · ${l.nc} campanhas</span></div><p class="mu">${esc(l.r)}</p></div>`).join(''):'<div class="card empty">Nenhuma rotina executada ainda.</div>');}
+let SI=null;
+async function loadSv(){try{const r=await api('/api/items?status=pendente');SI=r.ok?await r.json():[]}catch(e){SI=[]}if(view==='sv')render()}
+async function svDec(id,a){await api('/api/items/'+id+'/'+a,'POST');loadSv()}
+async function svRun(){toast('Rodando a rotina no servidor\u2026');try{const r=await api('/api/routine','POST');const j=await r.json();toast(j.criados!=null?j.criados+' itens propostos.':(j.aviso||j.erro||'Rotina conclu\u00edda.'))}catch(e){toast('Servidor indispon\u00edvel.')}loadSv()}
+function vSv(){if(SI===null){SI=[];loadSv()}
+  return head('Servidor','Gerente 24 horas','Itens que o gerente do servidor prop\u00f4s e aguardam a sua decis\u00e3o.')+`<div class="card ai"><h3>${ic('sv')}Conex\u00e3o</h3><p class="mu">O servidor roda a rotina todos os dias, mesmo com o app fechado. Os produtos deste painel s\u00e3o enviados a ele automaticamente.</p><div class="row"><button class="btn" onclick="svRun()">Rodar rotina agora</button><button class="btn s" onclick="SI=null;render()">Atualizar</button></div></div>`+(SI.length?SI.map(i=>`<div class="card"><div class="row"><h3 style="flex:1">${esc(i.produto)} \u00b7 ${esc(i.canal)}</h3><span class="badge wa">${esc(i.tipo)}${i.tipo==='campanha'?' \u00b7 '+brl(i.orcamento):''}</span></div><div class="an"><b>${esc(i.titulo)}</b><div>${esc(i.texto)}</div><div class="mu">${esc(i.hashtags)}</div></div><div class="row" style="margin-top:10px"><button class="btn g" onclick="svDec('${esc(i.id)}','approve')">Aprovar</button><button class="btn d" onclick="svDec('${esc(i.id)}','reject')">Rejeitar</button></div></div>`).join(''):'<div class="card empty">Nada pendente no servidor.</div>')}
+const V={ov:vOv,pr:vPr,dc:vDc,ca:vCa,ag:vAg,ap:vAp,vt:vVt,as:vAs,gm:vGm,sv:vSv,cv:vCv,cf:vCf};
+function render(){shell();$('#main').innerHTML=V[view]();window.scrollTo(0,0)}
+function addP(){const n=$('#pn').value.trim();if(!n)return toast('Informe o nome do produto.');S.products.push({id:Date.now(),n,pl:$('#pl').value,pr:+$('#pr').value||0,cm:+$('#cm').value||0,lk:$('#lk').value.trim()});save();render()}
+function delP(id){S.products=S.products.filter(p=>p.id!==id);save();render()}
+async function analyze(id){const p=S.products.find(x=>x.id===id);toast('Analisando com IA…');
+  const r=await ai(`Você é analista sênior de marketing de afiliados no Brasil. Avalie o produto e responda SOMENTE com JSON válido: {"score":número 0-100,"resumo":"1 frase","publico":"público ideal","angulo":"melhor ângulo de venda","riscos":"principais riscos"}. Produto: ${p.n}; plataforma ${p.pl}; preço R$ ${p.pr}; comissão ${p.cm}%.`,true);
+  if(r&&typeof r.score!=='undefined'){r.score=Math.max(0,Math.min(100,Math.round(+r.score)));p.an=r;save();render()}}
+async function addC(){const p=S.products.find(x=>x.id==$('#cp').value);if(!p)return;const b=+$('#cb').value||0,canal=$('#cc').value;toast('A IA está escrevendo…');
+  const copy=await ai(`Você é redator de afiliados no Brasil. Crie um anúncio honesto, sem promessas falsas, para ${canal}. Responda SOMENTE JSON: {"titulo":"","texto":"até 280 caracteres","hashtags":"3 a 5 hashtags"}. Produto: ${p.n} (${p.pl}), preço R$ ${p.pr}.`,true);
+  S.campaigns.push({id:Date.now(),pid:p.id,pn:p.n,canal,b,copy:copy&&copy.titulo?copy:null,st:'pendente'});save();render();toast('Campanha enviada para aprovação.')}
+function delC(id){S.campaigns=S.campaigns.filter(c=>c.id!==id);save();render()}
+function dec(id,st){const c=S.campaigns.find(x=>x.id===id);if(st==='aprovada'){if(S.spent+c.b>S.limit)return toast('Excede o limite diário.');S.spent+=c.b}c.st=st;save();render()}
+async function insight(){toast('Analisando seu cenário…');const t=await ai(ctx()+'\nFaça um resumo estratégico curto (máx. 6 linhas) com 3 próximas ações práticas. Português, direto, sem markdown.');if(t){S.insight=t;save();render()}}
+async function ask(q){q=q||$('#q').value.trim();if(!q)return;chat.push({r:'u',t:q});render();
+  const h=chat.slice(-8).map(m=>(m.r==='u'?'Usuário: ':'Assistente: ')+m.t).join('\n');
+  const t=await ai(ctx()+'\nVocê é o assistente do AfiliAI Pro, especialista em marketing de afiliados no Brasil. Responda em português, claro e objetivo, sem prometer ganhos garantidos.\n'+h+'\nAssistente:');
+  chat.push({r:'a',t:t||'Não consegui responder agora. Tente novamente.'});render();const c=$('#chat');if(c)c.scrollTop=c.scrollHeight}
+function setLim(){S.limit=Math.max(0,+$('#lm').value||0);save();render();toast('Limite salvo.')}
+async function exp(){try{dlf({filename:'afiliai-backup.json',data:JSON.stringify(S,null,2)})}catch(e){toast('Não foi possível exportar aqui.')}}
+function imp(el){const f=el.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d.products))throw 0;S=Object.assign(S,d);save();render();toast('Backup importado.')}catch(e){toast('Arquivo inválido.')}};r.readAsText(f)}
+function clr(){if(confirm('Apagar todos os dados, inclusive o cofre?')){S={limit:10,spent:0,day:today(),products:[],campaigns:[],posts:[],perfil:{},insight:''};save();chat=[];render()}}
+render();initCloud().then(()=>{if(S.perm&&S.perm.auto&&S.lastRun!==today()&&S.products.length)routine(true)});
+</script>
+</body>
+</html>
