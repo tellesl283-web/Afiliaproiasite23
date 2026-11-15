@@ -1,0 +1,9 @@
+{
+  "name": "afiliai-gerente",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "@anthropic-ai/sdk": "^0.40.0", "node-cron": "^3.0.3" }
+}
